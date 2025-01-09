@@ -1,22 +1,31 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Введите число a: ");
-        int a = new Scanner(System.in).nextInt();
-        System.out.println("Введите число b: ");
-        int b = new Scanner(System.in).nextInt();
-        //Сумма чисел
-        int s = a+b;
-        System.out.println("a+b= " + s);
-        //Разность чисел
-        int r = a-b;
-        System.out.println("a-b= " + r);
-        //Произведение чисел
-        int p = a*b;
-        System.out.println("a*b =" + p);
-        //Деление чисел
-        double q = (double) a/b;
-        System.out.println("a/b =" +  q);
+        infinityLoop();
+    }
+    public static void infinityLoop (){
+        //Переменная количества верных путей до файла
+        int countFile =0;
+        //Бесконечный цикл
+        while (true){
+            System.out.println("Введите путь до файла ");
+            String path = new Scanner(System.in).nextLine();
+            File file = new File(path);
+            //Переменная верного пути к файлу
+            boolean fileExists = file.exists();
+            //Переменная пути к дирректории
+            boolean isDirectory = file.isDirectory();
+            if (!fileExists || isDirectory) {
+                System.out.println("Указанный путь является путем к папке " +
+                        "или указанный файл не существует");
+                System.out.println("");
+            }else {
+                countFile++;
+                System.out.println("Путь указан верно - это файл № " + countFile);
+            }
+            System.out.println("");
+        }
     }
 }
