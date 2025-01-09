@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Введите путь до файла ");
             String path = new Scanner(System.in).nextLine();
             File file = new File(path);
-            //Переменная верного пути к файлу
+            //Переменная пути к файлу
             boolean fileExists = file.exists();
             //Переменная пути к дирректории
             boolean isDirectory = file.isDirectory();
